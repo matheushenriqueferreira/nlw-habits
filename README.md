@@ -7,11 +7,11 @@
 ## :hash: Tecnologias utilizadas
 
 - [Node JS](https://nodejs.org/en/) - v18.13.0 LTS.
-- [React JS](https://reactjs.org/) - WEB.
-- [React Native](https://reactnative.dev/) - Mobile.
-- [Zulu JDK](https://www.azul.com/downloads/?package=jdk) - Java 17 LTS.
+- [Vite + React + TS ](https://vitejs.dev/) - WEB.
+- [Expo + React Native](https://expo.dev/) - Mobile.
 - [VS Code](https://code.visualstudio.com/) - Editor de código.
 - [Android Studio](https://developer.android.com/studio) - Emulador Android.
+- [Zulu JDK](https://www.azul.com/downloads/?package=jdk) - Java 17 LTS.
 
 ## :copyright: Créditos
 
