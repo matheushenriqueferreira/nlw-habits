@@ -10,7 +10,7 @@ interface props extends TouchableOpacityProps {
 export const Checkbox = ({ checked = false, title, ...rest}: props) => {
   return(
     <TouchableOpacity
-    activeOpacity={0.7}
+      activeOpacity={0.7}
       className="flex-row mb-2 items-center"
       {...rest}
     >
