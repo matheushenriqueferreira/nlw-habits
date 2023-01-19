@@ -29,7 +29,7 @@ export const Checkbox = ({ checked = false, title, ...rest}: props) => {
         :
         <View className="w-8 h-8 bg-zinc-900 rounded-lg" />
       }
-      <Text className="text-white text-base ml-3">
+      <Text className="text-white text-base ml-3 font-semibold">
         {title}
       </Text>
     </TouchableOpacity>
