@@ -18,7 +18,7 @@ export const Header = () => {
         </Dialog.Trigger>
         <Dialog.Portal> //Jogar o conteudo do modal mais para fora, para não ficar dentro do header
           <Dialog.Overlay className='w-screen h-screen bg-black/80 fixed inset-0' /> // Tira o foco do conteúdo que está atras do modal
-          <Dialog.Content className='absolute p-10 bg-zinc-900 rounded-2xl w-full max-w-md top-1/2 left-1/2 -translate-x-1/2 -tranlate-y-1/2'>
+          <Dialog.Content className='absolute p-10 bg-zinc-900 rounded-2xl w-full max-w-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
             <Dialog.Close className='absolute right-6 top-6 text-zinc-400 hover:text-zinc-200'>
               <X size={24} aria-label="Fechar" />
             </Dialog.Close>
