@@ -48,9 +48,6 @@ export const SummaryTable = () => {
           const dayInSummary = summary.find(day => {
             return dayjs(date).isSame(day.date, 'day')// Valida se a data percorrida é igual alguma data presente no summary
           })
-
-          console.log(dayInSummary)
-
           return (
             <HabitDay 
               key={date.toString()}
