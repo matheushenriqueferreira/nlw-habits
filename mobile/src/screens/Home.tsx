@@ -32,7 +32,6 @@ export const Home = () => {
     setLoading(true);
     api.get('summary')
     .then(response => {
-      console.log(response.data)
       setSummary(response.data)
     })
     .catch((error) => {
