@@ -1,5 +1,5 @@
 import { Dimensions, TouchableOpacity, TouchableOpacityProps } from 'react-native'
-import { GenerateProgressPercentage } from '../utils/generate-progress-percentage';
+import { generateProgressPercentage } from '../utils/generate-progress-percentage';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 
@@ -16,10 +16,9 @@ interface Props extends TouchableOpacityProps {
 }
 
 export const HabitDay = ({amountOfHabits = 0, amountCompleted = 0, date, ...rest }: Props) => {
-  const amountAccomplishedPercentage = amountOfHabits > 0 ? GenerateProgressPercentage(amountOfHabits, amountCompleted) : 0
+  const amountAccomplishedPercentage = amountOfHabits > 0 ? generateProgressPercentage(amountOfHabits, amountCompleted) : 0
   const today = dayjs().startOf('day').toDate();
   const isCurrentDay = dayjs(date).isSame(today);
-
 
   return (
     <TouchableOpacity 

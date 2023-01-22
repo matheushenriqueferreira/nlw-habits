@@ -7,7 +7,7 @@ import { Checkbox } from "../components/Checkbox";
 import { api } from "../lib/axios";
 import { useEffect, useState } from "react";
 import { Loading } from "../components/Loading";
-import { GenerateProgressPercentage } from "../utils/generate-progress-percentage";
+import { generateProgressPercentage } from "../utils/generate-progress-percentage";
 import { HabitsEmpty } from "../components/HabitsEmpty";
 import clsx from "clsx";
 
@@ -37,7 +37,7 @@ export const Habit = () => {
 
   const isDateInPast = parsedDate.endOf('day').isBefore(new Date());
 
-  const habitsProgress = dayInfo?.possibleHabits.length ? GenerateProgressPercentage(dayInfo.possibleHabits.length, completedHabits.length) : 0
+  const habitsProgress = dayInfo?.possibleHabits?.length ? generateProgressPercentage(dayInfo.possibleHabits.length, completedHabits.length) : 0
 
   const fetchHabits = () => {
     setLoading(true);
@@ -48,7 +48,7 @@ export const Habit = () => {
     })
     .then((response) => {
       setDayInfo(response.data);
-      setCompletedHabits(response.data.completedHabits);
+      setCompletedHabits(response.data.completedHabits ?? []);
     })
     .catch((error) => {
       console.log(error)
@@ -57,26 +57,33 @@ export const Habit = () => {
     .finally(() => {
       setLoading(false);
     })
-
-    if(loading) {
-      return (
-        <Loading />
-      );
-    }
   }
 
   const handleToggleHabit = (habitId: string) => {
-    if(completedHabits.includes(habitId)) {
-      setCompletedHabits(prevState => prevState.filter(habit => habit !== habitId));
-    }
-    else {
-      setCompletedHabits(prevState => [...prevState, habitId]);
-    }
+    api.patch(`/habits/${habitId}/toggle`)
+    .then(() => {
+      if(completedHabits.includes(habitId)) {
+        setCompletedHabits(prevState => prevState.filter(habit => habit !== habitId));
+      }
+      else {
+        setCompletedHabits(prevState => [...prevState, habitId]);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      Alert.alert('Ops', 'Não foi possível atualizar o status do hábito');
+    });
   }
 
   useEffect(() => {
     fetchHabits();
   }, []);
+
+  if(loading) {
+    return (
+      <Loading />
+    );
+  }
 
   return (
     <View className="flex-1 bg-background px-8 pt-16">
@@ -100,11 +107,11 @@ export const Habit = () => {
         })}>
           {
             dayInfo?.possibleHabits ?
-            dayInfo?.possibleHabits.map(habit => (
+            dayInfo.possibleHabits?.map(habit => (
               <Checkbox 
                 key={habit.id} 
                 title={habit.title} 
-                checked={completedHabits.includes(habit.id)}
+                checked={completedHabits?.includes(habit.id)}
                 disabled={isDateInPast}
                 onPress={() => handleToggleHabit(habit.id)}
               />

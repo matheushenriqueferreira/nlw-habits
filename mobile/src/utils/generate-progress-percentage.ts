@@ -1,3 +1,3 @@
-export const GenerateProgressPercentage = (total: number, completed: number) => {
+export const generateProgressPercentage = (total: number, completed: number) => {
   return Math.round((completed / total) * 100);
 }
