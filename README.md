@@ -1,8 +1,10 @@
-<h1 align="center">HABITS</h1>
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/matheushenriqueferreira/nlw-habits/077f1ce619545e66c624513b43489eb0e5097d13/web/src/assets/logo.svg" />
+</h1>
 
 ## :memo: Descrição do Projeto
 
-<p align="center">Aplicativo de controle de hábitos.</p>
+<p align="center">Aplicação Web e Mobile de controle de hábitos, desenvolvido durante o evento NLW SETUP da Rocketseat</p>
 
 ## Tabela de Conteúdo
 <!--ts-->
