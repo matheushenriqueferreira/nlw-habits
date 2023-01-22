@@ -1,7 +1,10 @@
 import { Dimensions, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 import { generateProgressPercentage } from '../utils/generate-progress-percentage';
+import { Feather } from '@expo/vector-icons'
 import clsx from 'clsx';
 import dayjs from 'dayjs';
+import colors from "tailwindcss/colors";
+
 
 const WEEK_DAYS = 7;
 const SCREEN_HORIZONTAL_PADDING = (32 * 2) / 5;
@@ -23,7 +26,7 @@ export const HabitDay = ({amountOfHabits = 0, amountCompleted = 0, date, ...rest
   return (
     <TouchableOpacity 
       className={
-        clsx("rounded-lg border-2 m-1", {
+        clsx("rounded-lg border-2 m-1 flex justify-center items-center", {
             ["bg-zinc-900 border-zinc-800"] : amountAccomplishedPercentage === 0,
             ["bg-violet-900 border-violet-700"] : amountAccomplishedPercentage > 0 && amountAccomplishedPercentage < 20,
             ["bg-violet-800 border-violet-600"] : amountAccomplishedPercentage >= 20 && amountAccomplishedPercentage < 40,
@@ -37,6 +40,10 @@ export const HabitDay = ({amountOfHabits = 0, amountCompleted = 0, date, ...rest
       style={{ width: DAY_SIZE, height: DAY_SIZE }}
       activeOpacity={0.7}
       {...rest}
-    />
+    >
+      {
+        amountAccomplishedPercentage === 100 && <Feather name='check' size={15} color={colors.white} />
+      }
+    </TouchableOpacity>
   );
 }
