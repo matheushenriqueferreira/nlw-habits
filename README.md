@@ -6,7 +6,7 @@
 <!--ts-->
    * [Descrição do Projeto](#memo-descrição-do-projeto)
    * [Diagrama entidade relacionamento](#information_source-diagrama-entidade-relacionamento)
-   * [Rodar aplicação](#hammer_and_wrench-rodar-aplicação)
+   * [Executar a aplicação](#hammer_and_wrench-executar-a-aplicação)
        * [Server](#gear-server)
        * [Web](#computer-web)
        * [Mobile](#iphone-mobile)
@@ -24,7 +24,7 @@
     <img width=400 src="https://raw.githubusercontent.com/matheushenriqueferreira/nlw-habits/1195aca4b8b7f5bc5482e3ebf97131c49c7271f6/server/prisma/ERD.svg" />
 </div>
 
-## :hammer_and_wrench: Rodar aplicação
+## :hammer_and_wrench: Executar a aplicação
 ### :gear: Server
     # Acesse a pasta do projeto baixado no terminal/cmd
     $ cd server
